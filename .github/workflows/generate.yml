@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  generate:
     runs-on: macos-latest
 
     steps:
@@ -27,12 +27,12 @@ jobs:
       
       - name: Rewrite
         run: |
-           sed -i 's/"1", 1, 16, 'x')/"128", 1, -1, 'x')/g' tmp/copy
-           sed -i 's/"20M", 1_m, 1_g, 'k')/"4K", 1_k, 1_g, 'k')/g' tmp/copy
-           sed -i 's/"60", 1, 600)/"30", 1, 600)/g' tmp/copy
-           sed -i 's/"1M", 1_m, 1_g/"4k", 1_k, 1_g/g' tmp/copy
-           sed -i 's/"0", 0, 600)/"2", 0, 600)/g' tmp/copy
-           sed -i 's/"5", 1, -1, 's')/"8", 1, -1, 's')/g' tmp/copy
+           sed -i '' 's/"1", 1, 16, 'x')/"128", 1, -1, 'x')/g' tmp/copy
+           sed -i '' 's/"20M", 1_m, 1_g, 'k')/"4K", 1_k, 1_g, 'k')/g' tmp/copy
+           sed -i '' 's/"60", 1, 600)/"30", 1, 600)/g' tmp/copy
+           sed -i '' 's/"1M", 1_m, 1_g/"4k", 1_k, 1_g/g' tmp/copy
+           sed -i '' 's/"0", 0, 600)/"2", 0, 600)/g' tmp/copy
+           sed -i '' 's/"5", 1, -1, 's')/"8", 1, -1, 's')/g' tmp/copy
       
       - name: Create patch
         run: diff -u src/OptionHandlerFactory.cc tmp/copy > tmp/aria2-plaid.patch
