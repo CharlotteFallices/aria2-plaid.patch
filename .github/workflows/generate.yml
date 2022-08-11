@@ -38,6 +38,7 @@ jobs:
         run: |
           touch tmp/aria2-plaid.patch
           diff -u src/OptionHandlerFactory.cc tmp/copy > tmp/aria2-plaid.patch
+          exit
       
       - name: Release
         uses: softprops/action-gh-release@v1
