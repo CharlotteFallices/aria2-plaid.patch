@@ -34,11 +34,10 @@ jobs:
            sed -i '' 's/"0", 0, 600)/"2", 0, 600)/g' tmp/copy
            sed -i '' 's/"5", 1, -1, 's')/"8", 1, -1, 's')/g' tmp/copy
       
-      - name: Debug
-        run: echo $(diff -u src/OptionHandlerFactory.cc tmp/copy)
-      
       - name: Create patch
-        run: diff -u src/OptionHandlerFactory.cc tmp/copy > tmp/aria2-plaid.patch
+        run: |
+          touch tmp/aria2_plaid.patch
+          diff -u src/OptionHandlerFactory.cc tmp/copy > tmp/aria2-plaid.patch
       
       - name: Release
         uses: softprops/action-gh-release@v1
