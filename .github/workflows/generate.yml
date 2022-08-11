@@ -36,7 +36,7 @@ jobs:
       
       - name: Create patch
         run: |
-          set -e
+          set +e
           touch tmp/aria2-plaid.patch
           diff -u src/OptionHandlerFactory.cc tmp/copy > tmp/aria2-plaid.patch
       
